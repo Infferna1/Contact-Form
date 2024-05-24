@@ -45,12 +45,12 @@
         <fieldset>
           <legend>Query Type</legend>
           <section>
-            <div>
+            <div class="query">
               <input type="radio" name="query" id="general" value="general" />
               <label for="general">General Enquiry</label>
             </div>
 
-            <div>
+            <div class="query">
               <input type="radio" name="query" id="support" value="support" />
               <label for="support">Support Request</label>
             </div>
@@ -59,12 +59,12 @@
         <!-- Please select a query type -->
 
         <label for="message">Message</label>
-        <input type="text" name="message" id="message" />
+        <textarea name="message" id="message" cols="30" rows="5" width="100%"></textarea>
         <!-- This field is required -->
 
-        <div>
+        <div class="check">
           <input type="checkbox" name="consent" id="consent" />
-          <label for="consent">
+          <label for="consent" class="consent">
             I consent to being contacted by the team
           </label>
           <!-- To submit this form, please consent to being contacted -->
