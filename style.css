@@ -22,7 +22,6 @@ main {
   flex-direction: column;
   padding: 30px;
   border-radius: 10px;
-  min-width: 100vh;
 }
 
 fieldset {
@@ -101,12 +100,12 @@ textarea {
 }
 
 button {
-    background-color: hsl(169, 82%, 27%);
-    border: none;
-    border-radius: 5px;
-    color: hsl(0, 0%, 100%);
-    padding-top: 15px;
-    padding-bottom: 15px;
-    font-family: "Kalra", sans-serif;
-    font-size: 16px;
+  background-color: hsl(169, 82%, 27%);
+  border: none;
+  border-radius: 5px;
+  color: hsl(0, 0%, 100%);
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-family: "Kalra", sans-serif;
+  font-size: 16px;
 }
