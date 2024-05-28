@@ -115,4 +115,20 @@ button {
   font-size: 16px;
 }
 
+input:focus {
+  border: 1px solid hsl(169, 82%, 27%);
+}
 
+input:hover {
+  border: 1px solid hsl(169, 82%, 27%);
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: hsl(169, 83%, 14%);
+  cursor: pointer;
+}
+
+.query label {
+  cursor: pointer;
+}
