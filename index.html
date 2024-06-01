@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- displays site properly based on user's device -->
 
     <link rel="stylesheet" href="style.css" />
@@ -28,46 +28,73 @@
 
       <form action="">
         <section>
-          <label for="firstName">First Name</label>
-          <label for="lastName">Last Name</label>
-
-          <input type="text" id="firstName" name="firstName" />
-          <!-- This field is required -->
-          <input type="text" id="lastName" name="lastName" />
-          <!-- This field is required -->
+          <div class="input-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" />
+            <p>This field is required</p>
+          </div>
+          <div class="input-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" />
+            <p>This field is required</p>
+          </div>
         </section>
 
-        <label for="email">Email Address</label>
-        <input type="email" name="email" id="email" />
-        <!-- Please enter a valid email address
-          This field is required -->
+        <div class="input-group">
+          <label for="email">Email Address</label>
+          <input type="email" name="email" id="email" />
+          <p>Please enter a valid email address</p>
+        </div>
 
         <fieldset>
           <legend>Query Type</legend>
           <section>
             <div class="query">
-              <input type="radio" name="query" id="general" value="general" onchange="highlightSelected()" />
+              <input
+                type="radio"
+                name="query"
+                id="general"
+                value="general"
+                onchange="highlightSelected()"
+              />
               <label for="general">General Enquiry</label>
             </div>
 
             <div class="query">
-              <input type="radio" name="query" id="support" value="support" onchange="highlightSelected()" />
+              <input
+                type="radio"
+                name="query"
+                id="support"
+                value="support"
+                onchange="highlightSelected()"
+              />
               <label for="support">Support Request</label>
             </div>
+            <p>Please select a query type</p>
           </section>
         </fieldset>
-        <!-- Please select a query type -->
 
-        <label for="message">Message</label>
-        <textarea name="message" id="message" cols="30" rows="3" width="100%"></textarea>
-        <!-- This field is required -->
+        <div class="input-group">
+          <label for="message">Message</label>
+          <textarea
+            name="message"
+            id="message"
+            cols="30"
+            rows="3"
+            width="100%"
+          ></textarea>
+          <p>This field is required</p>
+        </div>
 
         <div class="check">
-          <input type="checkbox" name="consent" id="consent" />
-          <label for="consent" class="consent">
-            I consent to being contacted by the team
-          </label>
-          <!-- To submit this form, please consent to being contacted -->
+          <div>
+            <input type="checkbox" name="consent" id="consent" />
+            <label for="consent" class="consent">
+              I consent to being contacted by the team
+            </label>
+          </div>
+
+          <p>To submit this form, please consent to being contacted</p>
         </div>
 
         <button>Submit</button>

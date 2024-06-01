@@ -56,15 +56,34 @@ h1 {
   font-size: 24px;
 }
 
+p {
+  padding-top: 5px;
+  font-family: "Karla", sans-serif;
+  font-size: 14px;
+  color: hsl(0, 66%, 56%);
+}
+
 section {
   display: grid;
   grid-gap: 2%;
-  grid-template-columns: 48.5% 48.5%; /* Change this mess */
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  min-width: 0; /* Ensure the flex container can shrink */
+}
+
+.input-group input {
+  width: 100%;
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 .check {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   padding-top: 20px;
   padding-bottom: 20px;
 }
@@ -78,6 +97,10 @@ input {
 .check label {
   padding-left: 10px;
   padding-top: 5px;
+}
+
+.check p {
+  padding-bottom: 10px;
 }
 
 label {
@@ -152,7 +175,7 @@ textarea:focus {
   background: hsl(148, 38%, 91%);
 }
 
-input[type=radio] {
+input[type="radio"] {
   accent-color: hsl(169, 82%, 27%);
 }
 
@@ -161,12 +184,13 @@ input[type="checkbox"] {
 }
 
 .consent {
-  cursor: pointer;  
+  cursor: pointer;
 }
 
 /* ####### TEXT ####### */
 
-input, textarea {
+input,
+textarea {
   padding-left: 20px;
   padding-right: 20px;
   font-family: "Karla", sans-serif;
