@@ -46,12 +46,12 @@
           <legend>Query Type</legend>
           <section>
             <div class="query">
-              <input type="radio" name="query" id="general" value="general" />
+              <input type="radio" name="query" id="general" value="general" onchange="highlightSelected()" />
               <label for="general">General Enquiry</label>
             </div>
 
             <div class="query">
-              <input type="radio" name="query" id="support" value="support" />
+              <input type="radio" name="query" id="support" value="support" onchange="highlightSelected()" />
               <label for="support">Support Request</label>
             </div>
           </section>
@@ -81,4 +81,5 @@
       Coded by <a href="#">Your Name Here</a>.
     </div>
   </body>
+  <script src="main.js"></script>
 </html>
