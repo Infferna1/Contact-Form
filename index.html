@@ -31,19 +31,19 @@
           <div class="input-group">
             <label for="firstName">First Name</label>
             <input type="text" id="firstName" name="firstName" />
-            <p>This field is required</p>
+            <p style="display: none;">This field is required</p>
           </div>
           <div class="input-group">
             <label for="lastName">Last Name</label>
             <input type="text" id="lastName" name="lastName" />
-            <p>This field is required</p>
+            <p style="display: none;">This field is required</p>
           </div>
         </section>
 
         <div class="input-group">
           <label for="email">Email Address</label>
           <input type="email" name="email" id="email" />
-          <p>Please enter a valid email address</p>
+          <p style="display: none;">Please enter a valid email address</p>
         </div>
 
         <fieldset>
@@ -70,7 +70,7 @@
               />
               <label for="support">Support Request</label>
             </div>
-            <p>Please select a query type</p>
+            <p style="display: none;">Please select a query type</p>
           </section>
         </fieldset>
 
@@ -83,7 +83,7 @@
             rows="3"
             width="100%"
           ></textarea>
-          <p>This field is required</p>
+          <p style="display: none;">This field is required</p>
         </div>
 
         <div class="check">
@@ -94,7 +94,9 @@
             </label>
           </div>
 
-          <p>To submit this form, please consent to being contacted</p>
+          <p style="display: none;">
+            To submit this form, please consent to being contacted
+          </p>
         </div>
 
         <button>Submit</button>
