@@ -22,7 +22,7 @@ submitButton.addEventListener("click", function (events) {
   let isSurnameValid = false;
   let isEmailValid = false;
   let isChecked = false;
-  let isValid = false;
+  let isTextareaValid = textarea.value.trim() !== "";
 
   inputs.forEach(function (input) {
     if (input.type === "radio" && input.checked) {
@@ -34,18 +34,14 @@ submitButton.addEventListener("click", function (events) {
     } else if (input.name === "lastName" && input.value.trim() !== "") {
       isSurnameValid = true;
     } else if (
-      (input.name =
-        "email" && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim()))
+      input.name === "email" &&
+      /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim())
     ) {
       isEmailValid = true;
     }
   });
 
-  if (textarea.hasAttribute("required") && textarea.value.trim() !== "") {
-    isValid = true;
-  }
-
-  if (!isValid) {
+  if (!isTextareaValid) {
     console.log("Please enter message.");
   }
 
@@ -67,5 +63,17 @@ submitButton.addEventListener("click", function (events) {
 
   if (!isChecked) {
     console.log("Please check contacting.");
+  }
+
+  if (
+    isTextareaValid &&
+    isNameValid &&
+    isSurnameValid &&
+    isEmailValid &&
+    isAnyRadioChecked &&
+    isChecked
+  ) {
+    console.log("Form submitted successfully!");
+    // Add code to submit the form here
   }
 });
