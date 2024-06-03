@@ -3,11 +3,25 @@ function highlightSelected() {
   divs.forEach((div) => {
     let radio = div.querySelector('input[type="radio"]');
     if (radio.checked) {
+      if (div.classList.contains("error")) {
+        div.classList.remove("error");
+      }
       div.classList.add("highlight");
     } else {
       div.classList.remove("highlight");
     }
   });
+
+  // Hide error message when a radio button is selected
+  let radioErrorMessage = document.querySelector(
+    "fieldset section .error-message"
+  );
+  if (document.querySelector('input[type="radio"]:checked')) {
+    radioErrorMessage.style.display = "none";
+    document.querySelectorAll(".query").forEach(function (query) {
+      query.classList.remove("error");
+    });
+  }
 }
 
 let inputs = document.querySelectorAll("input");
@@ -18,51 +32,60 @@ submitButton.addEventListener("click", function (events) {
   events.preventDefault();
 
   let isAnyRadioChecked = false;
-  let isNameValid = false;
-  let isSurnameValid = false;
-  let isEmailValid = false;
-  let isChecked = false;
+
+  document.querySelectorAll('input[type="radio"]').forEach(function (radio) {
+    if (radio.checked) {
+      isAnyRadioChecked = true;
+    }
+  });
+
+  let radioErrorMessage = document.querySelector(
+    "fieldset section .error-message"
+  );
+  if (!isAnyRadioChecked) {
+    radioErrorMessage.style.display = "block";
+    document.querySelectorAll(".query").forEach(function (query) {
+      query.classList.add("error");
+    });
+  } else {
+    radioErrorMessage.style.display = "none";
+    document.querySelectorAll(".query").forEach(function (query) {
+      query.classList.remove("error");
+    });
+  }
+
   let isTextareaValid = textarea.value.trim() !== "";
 
   inputs.forEach(function (input) {
-    if (input.type === "radio" && input.checked) {
-      isAnyRadioChecked = true;
-    } else if (input.type === "checkbox" && input.checked) {
-      isChecked = true;
-    } else if (input.name === "firstName" && input.value.trim() !== "") {
-      isNameValid = true;
-    } else if (input.name === "lastName" && input.value.trim() !== "") {
-      isSurnameValid = true;
-    } else if (
-      input.name === "email" &&
-      /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim())
-    ) {
-      isEmailValid = true;
+    let inputGroup = input.closest(".input-group");
+    if (inputGroup) {
+      let errorMessage = inputGroup.querySelector(".error-message");
+
+      if (input.name === "firstName" && input.value.trim() === "") {
+        input.classList.add("error");
+        errorMessage.style.display = "block";
+        isValid = false;
+      } else if (input.name === "lastName" && input.value.trim() === "") {
+        input.classList.add("error");
+        errorMessage.style.display = "block";
+        isValid = false;
+      } else if (
+        input.name === "email" &&
+        (input.value.trim() === "" ||
+          !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim()))
+      ) {
+        input.classList.add("error");
+        errorMessage.style.display = "block";
+        isValid = false;
+      } else {
+        input.classList.remove("error");
+        errorMessage.style.display = "none";
+      }
     }
   });
 
   if (!isTextareaValid) {
     console.log("Please enter message.");
-  }
-
-  if (!isNameValid) {
-    console.log("Please enter your name.");
-  }
-
-  if (!isSurnameValid) {
-    console.log("Please enter your surname.");
-  }
-
-  if (!isEmailValid) {
-    console.log("Please enter a valid email address.");
-  }
-
-  if (!isAnyRadioChecked) {
-    console.log("Please select at least one option for the radio buttons.");
-  }
-
-  if (!isChecked) {
-    console.log("Please check contacting.");
   }
 
   if (
@@ -77,3 +100,12 @@ submitButton.addEventListener("click", function (events) {
     // Add code to submit the form here
   }
 });
+
+function hideError(input) {
+  let inputGroup = input.closest(".input-group");
+  if (inputGroup) {
+    let errorMessage = inputGroup.querySelector(".error-message");
+    input.classList.remove("error");
+    errorMessage.style.display = "none";
+  }
+}

@@ -30,20 +30,41 @@
         <section>
           <div class="input-group">
             <label for="firstName">First Name</label>
-            <input type="text" id="firstName" name="firstName" />
-            <p style="display: none;">This field is required</p>
+            <input
+              type="text"
+              id="firstName"
+              name="firstName"
+              onclick="hideError(this)"
+            />
+            <p class="error-message" style="display: none">
+              This field is required
+            </p>
           </div>
           <div class="input-group">
             <label for="lastName">Last Name</label>
-            <input type="text" id="lastName" name="lastName" />
-            <p style="display: none;">This field is required</p>
+            <input
+              type="text"
+              id="lastName"
+              name="lastName"
+              onclick="hideError(this)"
+            />
+            <p class="error-message" style="display: none">
+              This field is required
+            </p>
           </div>
         </section>
 
         <div class="input-group">
           <label for="email">Email Address</label>
-          <input type="email" name="email" id="email" />
-          <p style="display: none;">Please enter a valid email address</p>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            onclick="hideError(this)"
+          />
+          <p class="error-message" style="display: none">
+            Please enter a valid email address
+          </p>
         </div>
 
         <fieldset>
@@ -70,7 +91,9 @@
               />
               <label for="support">Support Request</label>
             </div>
-            <p style="display: none;">Please select a query type</p>
+            <p class="error-message" style="display: none">
+              Please select a query type
+            </p>
           </section>
         </fieldset>
 
@@ -83,7 +106,9 @@
             rows="3"
             width="100%"
           ></textarea>
-          <p style="display: none;">This field is required</p>
+          <p class="error-message" style="display: none">
+            This field is required
+          </p>
         </div>
 
         <div class="check">
@@ -94,7 +119,7 @@
             </label>
           </div>
 
-          <p style="display: none;">
+          <p class="error-message" style="display: none">
             To submit this form, please consent to being contacted
           </p>
         </div>

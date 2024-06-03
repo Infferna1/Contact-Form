@@ -76,6 +76,10 @@ section {
   min-width: 0; /* Ensure the flex container can shrink */
 }
 
+.input-group .error {
+  border: 1px solid hsl(0, 66%, 56%);
+}
+
 .input-group input {
   width: 100%;
   box-sizing: border-box; /* Include padding and border in the element's total width and height */
@@ -120,6 +124,11 @@ input {
   padding-left: 20px;
   padding-top: 12px;
   padding-bottom: 10px;
+}
+
+.input-group.error,
+.query.error {
+  border: 1px solid hsl(0, 66%, 56%);
 }
 
 textarea {
