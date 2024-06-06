@@ -31,7 +31,28 @@ let submitButton = document.querySelector("button");
 submitButton.addEventListener("click", function (events) {
   events.preventDefault();
 
+  let checkbox = document.querySelector("input[name='consent']");
+  let checkGroup = checkbox.closest(".check");
+  let errorMessage = checkGroup.querySelector(".error-message");
   let isAnyRadioChecked = false;
+
+  if (!checkbox.checked) {
+    checkbox.classList.add("error");
+    errorMessage.style.display = "block";
+    isValid = false;
+  } else {
+    checkbox.classList.remove("error");
+    errorMessage.style.display = "none";
+  }
+
+  checkbox.addEventListener("change", function () {
+    if (checkbox.checked) {
+      checkbox.classList.remove("error");
+      let checkGroup = checkbox.closest(".check");
+      let errorMessage = checkGroup.querySelector(".error-message");
+      errorMessage.style.display = "none";
+    }
+  });
 
   document.querySelectorAll('input[type="radio"]').forEach(function (radio) {
     if (radio.checked) {
