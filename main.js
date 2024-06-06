@@ -25,13 +25,14 @@ function highlightSelected() {
 }
 
 let inputs = document.querySelectorAll("input");
-let textarea = document.querySelector("textarea");
+let textareas = document.querySelector("textarea");
 let submitButton = document.querySelector("button");
 
 submitButton.addEventListener("click", function (events) {
   events.preventDefault();
 
   let checkbox = document.querySelector("input[name='consent']");
+  let textareas = document.querySelectorAll("textarea");
   let checkGroup = checkbox.closest(".check");
   let errorMessage = checkGroup.querySelector(".error-message");
   let isAnyRadioChecked = false;
@@ -74,6 +75,35 @@ submitButton.addEventListener("click", function (events) {
       query.classList.remove("error");
     });
   }
+
+  textareas.forEach(function (textarea) {
+    let inputGroup = textarea.closest(".input-group");
+    if (inputGroup) {
+      let errorMessage = inputGroup.querySelector(".error-message");
+
+      if (textarea.name === "message" && textarea.value.trim() === "") {
+        textarea.classList.add("error");
+        errorMessage.style.display = "block";
+        isValid = false;
+      } else {
+        textarea.classList.remove("error");
+        errorMessage.style.display = "none";
+      }
+    }
+  });
+
+  textareas.forEach(function (textarea) {
+    textarea.addEventListener("input", function () {
+      let inputGroup = textarea.closest(".input-group");
+      if (inputGroup) {
+        let errorMessage = inputGroup.querySelector(".error-message");
+        if (textarea.value.trim() !== "") {
+          textarea.classList.remove("error");
+          errorMessage.style.display = "none";
+        }
+      }
+    });
+  });
 
   let isTextareaValid = textarea.value.trim() !== "";
 
