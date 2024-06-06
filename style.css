@@ -210,3 +210,12 @@ textarea {
   padding-top: 10px;
   padding-bottom: 10px;
 }
+
+
+/* ####### MOBILE ####### */
+
+@media (max-width: 375px) {
+  body {
+    background-color: black;
+  }
+}
