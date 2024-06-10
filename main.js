@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   function highlightSelected() {
     let divs = document.querySelectorAll(".query");
     divs.forEach((div) => {
@@ -13,7 +13,9 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     });
 
-    let radioErrorMessage = document.querySelector("fieldset section .error-message");
+    let radioErrorMessage = document.querySelector(
+      "fieldset section .error-message"
+    );
     if (document.querySelector('input[type="radio"]:checked')) {
       radioErrorMessage.style.display = "none";
       document.querySelectorAll(".query").forEach(function (query) {
@@ -35,8 +37,11 @@ document.addEventListener("DOMContentLoaded", function() {
         input.classList.add("error");
         errorMessage.style.display = "block";
         return false;
-      } else if (input.name === "email" &&
-        (input.value.trim() === "" || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim()))) {
+      } else if (
+        input.name === "email" &&
+        (input.value.trim() === "" ||
+          !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim()))
+      ) {
         input.classList.add("error");
         errorMessage.style.display = "block";
         return false;
@@ -90,7 +95,9 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     });
 
-    let radioErrorMessage = document.querySelector("fieldset section .error-message");
+    let radioErrorMessage = document.querySelector(
+      "fieldset section .error-message"
+    );
     if (!isAnyRadioChecked) {
       radioErrorMessage.style.display = "block";
       document.querySelectorAll(".query").forEach(function (query) {
@@ -114,6 +121,15 @@ document.addEventListener("DOMContentLoaded", function() {
       input.classList.remove("error");
       errorMessage.style.display = "none";
     }
+  }
+
+  function showSuccessMessage() {
+    let successMessage = document.getElementById("success-message");
+    successMessage.style.display = "block";
+    document.addEventListener("click", function hideMessage(event) {
+      successMessage.style.display = "none";
+      document.removeEventListener("click", hideMessage);
+    });
   }
 
   let inputs = document.querySelectorAll("input");
@@ -159,10 +175,19 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     if (isValid) {
-      console.log("Form submitted successfully!");
+      let successMessage = document.getElementById("success-message");
+      successMessage.style.display = "block";
+
+      // Додаткові дії, наприклад, відправка форми на сервер
+      // console.log("Form submitted successfully!");
       // Add code to submit the form here
-    } else {
-      console.log("Form has errors.");
+
+      // Сховати повідомлення через 5 секунд
+      setTimeout(() => {
+        successMessage.style.display = "none";
+      }, 5000);
     }
   });
+
+  window.highlightSelected = highlightSelected;
 });
