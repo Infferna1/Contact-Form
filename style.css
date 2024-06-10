@@ -197,6 +197,10 @@ input[type="checkbox"] {
 }
 
 /* ####### TEXT ####### */
+a {
+  text-decoration: none;
+  color:hsl(148, 38%, 91%);
+}
 
 input,
 textarea {
@@ -211,11 +215,35 @@ textarea {
   padding-bottom: 10px;
 }
 
-
 /* ####### MOBILE ####### */
 
 @media (max-width: 375px) {
   body {
-    background-color: black;
+    margin-top: 5%;
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+
+  main {
+    max-width: 100%;
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .query:nth-last-of-type(1) {
+    margin-top: 15px;
+  }
+
+  textarea {
+    height: 150px;
+  }
+
+  .attribution {
+    justify-content: center;
+    align-self: center;
+    text-align: center;
   }
 }
