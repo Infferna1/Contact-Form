@@ -12,7 +12,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-color: hsla(186, 15%, 59%, 1);
+  background-color: hsla(186, 15%, 59%, 0.5);
   margin-top: 6%;
   margin-left: 10%;
   margin-right: 10%;
@@ -199,7 +199,7 @@ input[type="checkbox"] {
 /* ####### TEXT ####### */
 a {
   text-decoration: none;
-  color: hsl(148, 38%, 91%);
+  color: hsl(169, 82%, 27%);
 }
 
 input,
